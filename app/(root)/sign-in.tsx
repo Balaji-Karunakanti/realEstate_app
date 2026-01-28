@@ -1,14 +1,60 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import icons from "@/constants/icons";
+import images from "@/constants/images";
+import React from "react";
+import { ScrollView, Image, View, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const SignIn = () => {
+
+  const handleLogin = ()=>{
+
+  }
   return (
-    <View>
-      <Text>SignIn</Text>
-    </View>
-  )
-}
+    <SafeAreaView className="bg-white flex-1">
+      <ScrollView
+        className="flex-1"
+        contentContainerClassName="flex-1 items-center"
+      >
+        {/* Image */}
+        <Image
+          source={images.onboarding}
+          className="w-full h-4/6"
+          resizeMode="contain"
+        />
 
-export default SignIn
+        {/* Text Content */}
+        <View className="px-10 mt-6">
+          <Text className="text-base text-center uppercase text-gray-500">
+            Welcome to RealState
+          </Text>
 
-const styles = StyleSheet.create({})
+          <Text className="text-3xl text-neutral-800 text-center mt-3 leading-snug">
+            Let&apos;s Get You Closer to {"\n"}
+            <Text className="text-primary-300">Your Ideal Home</Text>
+          </Text>
+
+          <Text className="text-lg text-black-300-400 text-center mt-8">
+            Login to Real Estate with Google
+          </Text>
+  <TouchableOpacity
+            onPress={handleLogin}
+            className="bg-white shadow-md shadow-zinc-300 rounded-full  w py-4 mt-5"
+          >
+            <View className="flex flex-row items-center justify-center">
+              <Image
+                source={icons.google}
+                className="w-5 h-5"
+                resizeMode="contain"
+              />
+              <Text className="text-lg font-rubik-medium text-black-300 ml-2">
+                Continue with Google
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default SignIn;
