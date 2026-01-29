@@ -46,13 +46,15 @@ const SignIn = () => {
                 className="w-5 h-5"
                 resizeMode="contain"
               />
-              <Text className="text-lg font-rubik-medium text-black-300 ml-2">
+              <Text className="text-lg text-black-300 font-rubik-medium ml-2">
                 Continue with Google
               </Text>
             </View>
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      <View/>
     </SafeAreaView>
   );
 };
