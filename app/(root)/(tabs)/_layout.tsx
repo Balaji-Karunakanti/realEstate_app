@@ -13,23 +13,30 @@ const TabIcon = ({focused,icon,title}:{focused:boolean; icon:any; title:string})
 
 const TabsLayout = () => {
   return (
-    <Tabs screenOptions={{
-      tabBarShowLabel:false,
-      tabBarStyle:{
-        backgroundColor:'white',
-        position:'absolute',
-        borderTopColor:'#0061FF1A',
-        borderTopWidth:1,
-        minHeight:70
-      }
-    }}
+    <Tabs   screenOptions={{
+    tabBarShowLabel: false,
+    tabBarStyle: {
+      backgroundColor: "white",
+      position: "absolute",
+      borderTopColor: "#0061FF1A",
+      borderTopWidth: 1,
+      height: 65,              
+    },
+    tabBarItemStyle: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    tabBarIconStyle: {
+        marginTop:5
+    },
+  }}
     >
       <Tabs.Screen name="index" options={{
         title:"home",
         headerShown:false,
         tabBarIcon:({focused})=>{
            return <View>
-           <TabIcon icon={icons.home} focused ={focused} title='home'  />
+           <TabIcon icon={icons.home} focused ={focused} title='Home'  />
           </View>
         }
       }}   />
@@ -38,19 +45,29 @@ const TabsLayout = () => {
         headerShown:false,
         tabBarIcon:({focused})=>{
            return <View>
-           <TabIcon icon={icons.search} focused ={focused} title='explore'  />
+           <TabIcon icon={icons.search} focused ={focused} title='Explore'  />
           </View>
         }
       }}   />
-       <Tabs.Screen name="profile" options={{
-        title:"profile",
-        headerShown:false,
-        tabBarIcon:({focused})=>{
-           return <View>
-           <TabIcon icon={icons.person} focused ={focused} title='profile'  />
-          </View>
-        }
-      }}   />
+       <Tabs.Screen
+  name="profile"
+  options={{
+    title: "profile",
+    headerShown: false,
+    tabBarIcon: ({ focused }) => {
+      return (
+        <View className="mb-4">
+          <TabIcon
+            icon={icons.person}
+            focused={focused}
+            title="Profile"
+          />
+        </View>
+      );
+    },
+  }}
+/>
+
     </Tabs>
   )
 }
