@@ -1,10 +1,17 @@
-import { View, Text,Image, TouchableOpacity, ImageSourcePropType } from "react-native";
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { settings } from "@/constants/data";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
-import { settings } from "@/constants/data";
-
+// import { account } from "@/lib/appwrite";
+import { useRouter } from "expo-router";
+import React from "react";
+import {
+  Image,
+  ImageSourcePropType,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface SettingsItemProp {
   icon: ImageSourcePropType;
@@ -36,34 +43,36 @@ const SettingsItem = ({
   </TouchableOpacity>
 );
 const Profile = () => {
-  function handleLogout(): void {
-    throw new Error("Function not implemented.");
+  const router = useRouter();
+
+ function handleLogout(): void {
+  router.replace("/sign-in");
+
   }
 
   return (
     <SafeAreaView className="">
-      <View  className=" mt-8 flex flex-row justify-between">
+      <View className=" mt-8 flex flex-row justify-between">
         <Text className="ml-5 font-bold text-lg ">Profile</Text>
         <View className="mr-10">
           <Image className="w-7 h-7" source={icons.bell} />
         </View>
-        
       </View>
-       <View className="flex mt-8 flex-row justify-center">
-          <View className="flex flex-col items-center relative mt-5">
-            <Image
-              source={images.avatar}
-              className="size-40 relative rounded-full"
-            />
-            <TouchableOpacity className="absolute bottom-11 right-2">
-              <Image source={icons.edit} className="size-8" />
-            </TouchableOpacity>
+      <View className="flex mt-8 flex-row justify-center">
+        <View className="flex flex-col items-center relative mt-5">
+          <Image
+            source={images.avatar}
+            className="size-40 relative rounded-full"
+          />
+          <TouchableOpacity className="absolute bottom-11 right-2">
+            <Image source={icons.edit} className="size-8" />
+          </TouchableOpacity>
 
-            <Text className="text-2xl font-rubik-bold mt-2">shiva</Text>
-          </View>
+          <Text className="text-2xl font-rubik-bold mt-2">shiva</Text>
         </View>
-<View className="ml-5">
-         <View className="flex flex-col mt-10">
+      </View>
+      <View className="ml-5">
+        <View className="flex flex-col mt-10">
           <SettingsItem icon={icons.calendar} title="My Bookings" />
           <SettingsItem icon={icons.wallet} title="Payments" />
         </View>
@@ -83,7 +92,7 @@ const Profile = () => {
             onPress={handleLogout}
           />
         </View>
-        </View>
+      </View>
     </SafeAreaView>
   );
 };
