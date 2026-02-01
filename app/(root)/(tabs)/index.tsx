@@ -7,8 +7,12 @@ import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react
 import { SafeAreaView } from "react-native-safe-area-context";
  import { cards } from "@/constants/data";
  import { featuredCards } from "@/constants/data";
+import { useRouter } from "expo-router";
 export default function Index() {
- 
+  const router = useRouter();
+  const handlePress =()=>{
+    router.push('/(root)/(tabs)/profile');
+  }
   return (
     <SafeAreaView className="bg-white h-full">
        
@@ -25,7 +29,10 @@ export default function Index() {
            ListHeaderComponent={   <View className="px-5">
         <View className="flex flex-row items-center justify-between mt-5">
           <View className="flex flex-row items-center">
-            <Image className="size-12 rounded-full" source={images.avatar} />
+             <TouchableOpacity onPress={handlePress}>
+                       <Image className="size-12 rounded-full" source={images.avatar} />
+             </TouchableOpacity>
+   
 
             <View className="flex flex-col items-start ml-2 justify-center">
               <Text className="text-xs text-black-100 font-rubik">

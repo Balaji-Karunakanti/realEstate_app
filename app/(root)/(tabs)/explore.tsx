@@ -46,12 +46,15 @@ const explore = () => {
     <FlatList 
               data ={cards}
               renderItem={({item})=>(
-                <Card  title ={item.title} location= {item.location} price = {item.price} rating = {item.rating} image={item.image} />
+               
+                         <Card  title ={item.title} location= {item.location} price = {item.price} rating = {item.rating} image={item.image} />
+              
+         
               )}
               keyExtractor={(item)=> item.toString()}
               numColumns={2}
               contentContainerClassName="pb-32 "
-              columnWrapperClassName="flex gap-5 mt-3 px-5"
+              columnWrapperClassName='gap-4 ml-3'
               showsVerticalScrollIndicator={false}
                ListHeaderComponent={
     <View className="px-6 mt-4">
